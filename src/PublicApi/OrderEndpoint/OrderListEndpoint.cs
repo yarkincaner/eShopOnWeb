@@ -15,10 +15,12 @@ namespace Microsoft.eShopWeb.PublicApi.OrderEndpoint;
 /// </summary>
 public class OrderListEndpoint : IEndpoint<IResult, IRepository<Order>>
 {
+    private readonly IUriComposer _uriComposer;
     private readonly IMapper _mapper;
 
-    public OrderListEndpoint(IMapper mapper)
+    public OrderListEndpoint(IUriComposer uriComposer, IMapper mapper)
     {
+        _uriComposer = uriComposer;
         _mapper = mapper;
     }
 
